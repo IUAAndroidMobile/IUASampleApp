@@ -4,12 +4,25 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MyMainActivity">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Hola Mundo!"
-              android:padding="50dp"
-              android:background="@android:color/holo_blue_dark"/>
+    <Button android:id="@+id/navigate_to_splash_screen_activity"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Volver al Inicio"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
+    <Button android:id="@+id/show_contacts"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Mostrar Contactos"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
 
 </LinearLayout>
