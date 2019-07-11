@@ -7,7 +7,7 @@
         android:orientation="vertical"
         tools:context=".MyMainActivity">
 
-    <Button android:id="@+id/navigate_to_splash_screen_activity"
+    <Button android:id="@+id/navigate_to_splash_button"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
             android:layout_height="60dp"
@@ -16,7 +16,7 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
-    <Button android:id="@+id/show_contacts"
+    <Button android:id="@+id/select_contact_button"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
             android:layout_height="60dp"
