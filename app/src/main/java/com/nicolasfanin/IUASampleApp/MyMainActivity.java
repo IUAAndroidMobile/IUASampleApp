@@ -3,7 +3,6 @@ package com.nicolasfanin.IUASampleApp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 
 public class MyMainActivity extends AppCompatActivity {
 
-    static final int PICK_CONTACT_REQUEST = 1;  // The request code
+    static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
     private Button selectContactButton;
 
@@ -35,7 +34,7 @@ public class MyMainActivity extends AppCompatActivity {
 
     private void pickContact() {
         Intent pickContactIntent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
-        pickContactIntent.setType(Phone.CONTENT_TYPE); // Show user only contacts w/ phone numbers
+        pickContactIntent.setType(Phone.CONTENT_TYPE); // Mostrar solo los contactos del usuario con sus nombres
         startActivityForResult(pickContactIntent, PICK_CONTACT_REQUEST);
     }
 
