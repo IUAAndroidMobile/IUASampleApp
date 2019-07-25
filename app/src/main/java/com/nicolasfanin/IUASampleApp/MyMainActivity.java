@@ -30,6 +30,9 @@ public class MyMainActivity extends AppCompatActivity {
                 pickContact();
             }
         });
+
+        getResources().getColor(R.color.colorPrimary);
+
     }
 
     private void pickContact() {
