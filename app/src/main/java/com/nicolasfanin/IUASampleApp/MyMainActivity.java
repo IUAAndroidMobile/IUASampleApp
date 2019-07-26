@@ -16,6 +16,7 @@ public class MyMainActivity extends AppCompatActivity {
     static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
     private Button selectContactButton;
+    private Button listActivityButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MyMainActivity extends AppCompatActivity {
         setContentView(R.layout.my_main_activity);
 
         selectContactButton = findViewById(R.id.select_contact_button);
+        listActivityButton = findViewById(R.id.list_activity_button);
 
         selectContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,9 +32,12 @@ public class MyMainActivity extends AppCompatActivity {
                 pickContact();
             }
         });
-
-        getResources().getColor(R.color.colorPrimary);
-
+        listActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToListActivity();
+            }
+        });
     }
 
     private void pickContact() {
@@ -57,6 +62,10 @@ public class MyMainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Telefono Seleccionado: " + number, Toast.LENGTH_LONG).show();
             }
         }
+    }
 
+    private void navigateToListActivity() {
+        Intent listIntent = new Intent(MyMainActivity.this, ListActivity.class);
+        startActivity(listIntent);
     }
 }

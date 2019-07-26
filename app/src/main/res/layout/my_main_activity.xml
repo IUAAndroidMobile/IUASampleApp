@@ -25,4 +25,13 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
+    <Button android:id="@+id/list_activity_button"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Lista de Items"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
 </LinearLayout>
