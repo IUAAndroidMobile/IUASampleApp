@@ -24,5 +24,8 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
+        getResources().getDrawable(R.drawable.logo);
+        String[] miArrayString = getResources().getStringArray(R.array.mi_array);
+        setTitle(miArrayString[1]);
     }
 }
