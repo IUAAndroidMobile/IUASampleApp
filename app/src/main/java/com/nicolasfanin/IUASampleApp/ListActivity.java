@@ -51,7 +51,7 @@ public class ListActivity extends AppCompatActivity implements ListAdapter.Recyc
     }
 
     @Override
-    public void onItemClick(View v, int position) {
+    public void onItemClick(int position) {
         Toast.makeText(this,"Su color es: " + colors.get(position).getName(), Toast.LENGTH_SHORT).show();
     }
 }

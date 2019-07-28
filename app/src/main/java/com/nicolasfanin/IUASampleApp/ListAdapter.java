@@ -58,7 +58,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    recyclerViewOnItemClickListener.onItemClick(v, getAdapterPosition());
+                    recyclerViewOnItemClickListener.onItemClick(getAdapterPosition());
                 }
             });
         }
@@ -78,6 +78,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
     }
 
     public interface RecyclerViewOnItemClickListener {
-        void onItemClick(View v, int position);
+        void onItemClick(int position);
     }
 }
