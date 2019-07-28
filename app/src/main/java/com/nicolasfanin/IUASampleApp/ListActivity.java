@@ -4,12 +4,15 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity implements ListAdapter.RecyclerViewOnItemClickListener {
 
     private ArrayList<Color> colors;
 
@@ -21,7 +24,10 @@ public class ListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ListAdapter(colors));
+        recyclerView.setAdapter(new ListAdapter(colors, this));
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
     }
 
     @SuppressLint("ResourceType")
@@ -44,4 +50,8 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(View v, int position) {
+        Toast.makeText(this,"Su color es: " + colors.get(position).getName(), Toast.LENGTH_SHORT).show();
+    }
 }

@@ -13,9 +13,11 @@ import java.util.List;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHolder> {
 
     private List<Color> data;
+    private RecyclerViewOnItemClickListener recyclerViewOnItemClickListener;
 
-    public ListAdapter(@NonNull List<Color> data) {
+    public ListAdapter(@NonNull List<Color> data, @NonNull RecyclerViewOnItemClickListener recyclerViewOnItemClickListener) {
         this.data = data;
+        this.recyclerViewOnItemClickListener = recyclerViewOnItemClickListener;
     }
 
     @NonNull
@@ -53,6 +55,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
             circleView = itemView.findViewById(R.id.circleView);
             titleTextView = (TextView) itemView.findViewById(R.id.titleTextView);
             subtitleTextView = (TextView) itemView.findViewById(R.id.subtitleTextView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recyclerViewOnItemClickListener.onItemClick(v, getAdapterPosition());
+                }
+            });
         }
 
         public TextView getTitleTextView() {
@@ -66,5 +74,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
         public View getCircleView() {
             return circleView;
         }
+
+    }
+
+    public interface RecyclerViewOnItemClickListener {
+        void onItemClick(View v, int position);
     }
 }
