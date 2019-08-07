@@ -34,4 +34,13 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
+    <Button android:id="@+id/activity_with_fragments"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Activity con Fragments"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
 </LinearLayout>
