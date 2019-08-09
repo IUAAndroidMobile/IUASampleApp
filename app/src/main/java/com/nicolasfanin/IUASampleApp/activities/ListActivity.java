@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp;
+package com.nicolasfanin.IUASampleApp.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.utils.ListAdapter;
+import com.nicolasfanin.IUASampleApp.R;
 
 import java.util.ArrayList;
 

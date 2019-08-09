@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp;
+package com.nicolasfanin.IUASampleApp.utils;
 
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.nicolasfanin.IUASampleApp.R;
+import com.nicolasfanin.IUASampleApp.data.Color;
 
 import java.util.List;
 
