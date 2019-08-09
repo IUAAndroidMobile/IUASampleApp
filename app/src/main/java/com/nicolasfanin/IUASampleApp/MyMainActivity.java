@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments;
 
 public class MyMainActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class MyMainActivity extends AppCompatActivity {
 
     private Button selectContactButton;
     private Button listActivityButton;
+    private Button activityWithFragmentsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MyMainActivity extends AppCompatActivity {
 
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
+        activityWithFragmentsButton = findViewById(R.id.activity_with_fragments);
 
         selectContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +41,13 @@ public class MyMainActivity extends AppCompatActivity {
                 navigateToListActivity();
             }
         });
+        activityWithFragmentsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToActivityWithFragments();
+            }
+        });
+
     }
 
     private void pickContact() {
@@ -67,5 +77,9 @@ public class MyMainActivity extends AppCompatActivity {
     private void navigateToListActivity() {
         Intent listIntent = new Intent(MyMainActivity.this, ListActivity.class);
         startActivity(listIntent);
+    }
+
+    private void navigateToActivityWithFragments() {
+        startActivity(new Intent(MyMainActivity.this, ActivityWithFragments.class));
     }
 }
