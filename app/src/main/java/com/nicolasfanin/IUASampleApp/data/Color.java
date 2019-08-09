@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp;
+package com.nicolasfanin.IUASampleApp.data;
 
 public class Color {
 
