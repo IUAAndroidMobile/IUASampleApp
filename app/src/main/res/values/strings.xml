@@ -3,6 +3,11 @@
     <string name="title_activity_exercise1">Exercise1Activity</string>
     <string name="item1">Item 1</string>
 
+    <!-- Layouts regions -->
+    <string name="grid_layout_explanation">The grid is composed of a set of infinitely thin lines that separate the viewing area into cells. </string>
+    <string name="grid_layout_part_two">Throughout the API, grid lines are referenced by grid indices.</string>
+
+    <!-- color region -->
     <string name="red">Red</string>
     <string name="indigo">Indigo</string>
     <string name="green">Green</string>

@@ -17,6 +17,7 @@ public class MyMainActivity extends AppCompatActivity {
 
     static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
+    private Button layoutsActivityButton;
     private Button selectContactButton;
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
@@ -26,10 +27,17 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
+        layoutsActivityButton = findViewById(R.id.activity_layouts_button);
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
         activityWithFragmentsButton = findViewById(R.id.activity_with_fragments);
 
+        layoutsActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToLayoutsActivity();
+            }
+        });
         selectContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +57,11 @@ public class MyMainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void navigateToLayoutsActivity() {
+        Intent listIntent = new Intent(MyMainActivity.this, LayoutsActivity.class);
+        startActivity(listIntent);
     }
 
     private void pickContact() {

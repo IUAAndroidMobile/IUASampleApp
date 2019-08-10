@@ -23,8 +23,15 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
+        //Trabajar con arrays!
         getResources().getDrawable(R.drawable.logo);
         String[] miArrayString = getResources().getStringArray(R.array.mi_array);
-        setTitle(miArrayString[1]);
+        setTitle(miArrayString[0]);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
     }
 }
