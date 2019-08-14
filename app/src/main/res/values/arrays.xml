@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="mi_array">
-        <item>item 1</item>
+        <item>Bienvenido!!!</item>
         <item>item 2</item>
         <item>item n</item>
     </string-array>

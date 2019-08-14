@@ -16,6 +16,15 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
+    <Button android:id="@+id/activity_layouts_button"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Layouts"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
     <Button android:id="@+id/select_contact_button"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
