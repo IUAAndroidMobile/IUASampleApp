@@ -9,24 +9,24 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.SplashActivity">
+        <activity
+                android:name=".activities.GuitHubRepoActivity"
+                android:label="@string/title_activity_guit_hub_repo">
+        </activity>
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.LayoutsActivity">
-
+        <activity android:name=".activities.LayoutsActivity">
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.MyMainActivity">
-
+        <activity android:name=".activities.MyMainActivity">
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.ListActivity">
-
+        <activity android:name=".activities.ListActivity">
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments">
-
+        <activity android:name=".fragments.ActivityWithFragments">
         </activity>
     </application>
 

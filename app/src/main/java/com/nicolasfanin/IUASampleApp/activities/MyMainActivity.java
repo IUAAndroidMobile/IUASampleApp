@@ -21,6 +21,7 @@ public class MyMainActivity extends AppCompatActivity {
     private Button selectContactButton;
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
+    private Button networkingActivityButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MyMainActivity extends AppCompatActivity {
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
         activityWithFragmentsButton = findViewById(R.id.activity_with_fragments);
+        networkingActivityButton = findViewById(R.id.networking_activity_button);
 
         layoutsActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,12 @@ public class MyMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 navigateToActivityWithFragments();
+            }
+        });
+        networkingActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToActivityNetworking();
             }
         });
 
@@ -95,5 +103,10 @@ public class MyMainActivity extends AppCompatActivity {
 
     private void navigateToActivityWithFragments() {
         startActivity(new Intent(MyMainActivity.this, ActivityWithFragments.class));
+    }
+
+    private void navigateToActivityNetworking() {
+        startActivity(new Intent(MyMainActivity.this, GuitHubRepoActivity.class));
+
     }
 }
