@@ -17,20 +17,19 @@
                android:layout_marginTop="50dp"/>
 
     <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textSize="20dp"
+              android:layout_height="0dp"
+              android:textSize="@dimen/texto_principal"
               android:layout_gravity="center"
               android:layout_marginTop="50dp"
               android:layout_weight="1"
-              android:text="TECNOLOGÍAS MÓVILES"/>
+              android:text="@string/subtitulo_splash"/>
 
     <Button android:id="@+id/init_button"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
             android:layout_height="70dp"
-            android:textSize="20dp"
+            android:textSize="@dimen/texto_principal"
             android:text="INICIAR"
-            android:background="@color/colorPrimaryDark"
-            android:layout_gravity="bottom"/>
+            android:background="@color/colorPrimaryDark"/>
 
 </LinearLayout>
