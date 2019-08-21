@@ -24,7 +24,7 @@ public class CreditCardActivity extends AppCompatActivity {
 
         savedInstanceState = getIntent().getExtras();
         if(savedInstanceState != null) {
-            creditCard = (CreditCard) savedInstanceState.get(CREDIT_CARD);
+            creditCard = (CreditCard) savedInstanceState.getParcelable(CREDIT_CARD);
             creditCardNumber.setText(creditCard.getNumero());
         }
     }
