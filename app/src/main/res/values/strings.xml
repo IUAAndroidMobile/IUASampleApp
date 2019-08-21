@@ -25,5 +25,7 @@
     <string name="deeppurple">Deep Purple</string>
     <string name="cyan">Cyan</string>
     <string name="brown">Brown</string>
+
+    <string name="your_credit_card_number">Su número de creditCard:</string>
     <string name="title_activity_guit_hub_repo">GuitHubRepo</string>
 </resources>

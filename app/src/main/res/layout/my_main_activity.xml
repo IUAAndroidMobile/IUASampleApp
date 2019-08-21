@@ -34,6 +34,24 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
+    <android.support.design.widget.TextInputEditText
+            android:id="@+id/credit_card_input_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese su número"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
+            android:inputType="number"/>
+
+    <Button android:id="@+id/send_credit_card_button"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Datos de creditCard (Parcelable)"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
     <Button android:id="@+id/list_activity_button"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"

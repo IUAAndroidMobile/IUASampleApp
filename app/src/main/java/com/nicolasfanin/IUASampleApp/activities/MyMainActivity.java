@@ -1,17 +1,22 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.nicolasfanin.IUASampleApp.R;
+import com.nicolasfanin.IUASampleApp.data.CreditCard;
 import com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments;
+
+import static com.nicolasfanin.IUASampleApp.utils.Constants.CREDIT_CARD;
 
 public class MyMainActivity extends AppCompatActivity {
 
@@ -22,9 +27,14 @@ public class MyMainActivity extends AppCompatActivity {
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
     private Button networkingActivityButton;
+    private Button sendCreditCardButton;
 
+    private TextInputEditText creditCardNumberTextView;
+
+
+    @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
@@ -32,6 +42,8 @@ public class MyMainActivity extends AppCompatActivity {
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
         activityWithFragmentsButton = findViewById(R.id.activity_with_fragments);
+        creditCardNumberTextView = (TextInputEditText) findViewById(R.id.credit_card_input_number);
+        sendCreditCardButton = findViewById(R.id.send_credit_card_button);
         networkingActivityButton = findViewById(R.id.networking_activity_button);
 
         layoutsActivityButton.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +68,12 @@ public class MyMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 navigateToActivityWithFragments();
+            }
+        });
+        sendCreditCardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToCreditCardActivity(new CreditCard(null, creditCardNumberTextView.getText().toString(), ""));
             }
         });
         networkingActivityButton.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +121,12 @@ public class MyMainActivity extends AppCompatActivity {
 
     private void navigateToActivityWithFragments() {
         startActivity(new Intent(MyMainActivity.this, ActivityWithFragments.class));
+    }
+
+    private void navigateToCreditCardActivity(CreditCard creditCard) {
+        Intent listIntent = new Intent(MyMainActivity.this, CreditCardActivity.class);
+        listIntent.putExtra(CREDIT_CARD, creditCard);
+        startActivity(listIntent);
     }
 
     private void navigateToActivityNetworking() {
