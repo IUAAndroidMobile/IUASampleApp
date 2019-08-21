@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Parcel;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -117,7 +116,7 @@ public class MyMainActivity extends AppCompatActivity {
     }
 
     private void navigateToCreditCardActivity(CreditCard creditCard) {
-        Intent listIntent = new Intent(MyMainActivity.this, ActivityWithParcelable.class);
+        Intent listIntent = new Intent(MyMainActivity.this, CreditCardActivity.class);
         listIntent.putExtra(CREDIT_CARD, creditCard);
         startActivity(listIntent);
     }

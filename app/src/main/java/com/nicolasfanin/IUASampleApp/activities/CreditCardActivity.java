@@ -9,7 +9,7 @@ import com.nicolasfanin.IUASampleApp.data.CreditCard;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.CREDIT_CARD;
 
-public class ActivityWithParcelable extends AppCompatActivity {
+public class CreditCardActivity extends AppCompatActivity {
 
     private CreditCard creditCard;
 

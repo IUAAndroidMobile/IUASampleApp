@@ -28,7 +28,7 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments">
 
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.ActivityWithParcelable">
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.CreditCardActivity">
 
         </activity>
     </application>
