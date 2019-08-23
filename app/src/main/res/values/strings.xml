@@ -2,6 +2,7 @@
     <string name="app_name">IUA Sample App</string>
     <string name="title_activity_exercise1">Exercise1Activity</string>
     <string name="item1">Item 1</string>
+    <string name="hola">Hola! </string>
 
     <!-- Layouts regions -->
     <string name="grid_layout_explanation">The grid is composed of a set of infinitely thin lines that separate the viewing area into cells. </string>
