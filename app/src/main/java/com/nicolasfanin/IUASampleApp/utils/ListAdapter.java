@@ -25,7 +25,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
     public PalleteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View row = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false);
         return new PalleteViewHolder(row);
-
     }
 
     @Override
