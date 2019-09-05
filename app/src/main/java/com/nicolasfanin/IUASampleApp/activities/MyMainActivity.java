@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.CreditCard;
@@ -22,6 +24,7 @@ public class MyMainActivity extends AppCompatActivity {
 
     static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
+    private Button navigatToSplashButton;
     private Button layoutsActivityButton;
     private Button selectContactButton;
     private Button listActivityButton;
@@ -38,6 +41,10 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
+        // Ocultar la barra de acción.
+        getSupportActionBar().hide();
+
+        navigatToSplashButton = findViewById(R.id.navigate_to_splash_button);
         layoutsActivityButton = findViewById(R.id.activity_layouts_button);
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
@@ -46,6 +53,15 @@ public class MyMainActivity extends AppCompatActivity {
         sendCreditCardButton = findViewById(R.id.send_credit_card_button);
         networkingActivityButton = findViewById(R.id.networking_activity_button);
 
+        navigatToSplashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout linearLayout = findViewById(R.id.my_main_layout);
+                Snackbar snackbar = Snackbar
+                        .make(linearLayout, getString(R.string.hola) + creditCardNumberTextView.getText().toString(), Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
         layoutsActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,7 +131,7 @@ public class MyMainActivity extends AppCompatActivity {
     }
 
     private void navigateToListActivity() {
-        Intent listIntent = new Intent(MyMainActivity.this, ListActivity.class);
+        Intent listIntent = new Intent(MyMainActivity.this, RecyclerViewActivity.class);
         startActivity(listIntent);
     }
 

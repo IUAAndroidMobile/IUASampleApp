@@ -15,17 +15,23 @@ import java.util.List;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHolder> {
 
     private List<Color> data;
+    private RecyclerViewOnItemClickListener recyclerViewOnItemClickListener;
 
-    public ListAdapter(@NonNull List<Color> data) {
+    public ListAdapter(@NonNull List<Color> data, @NonNull RecyclerViewOnItemClickListener recyclerViewOnItemClickListener) {
         this.data = data;
+        this.recyclerViewOnItemClickListener = recyclerViewOnItemClickListener;
     }
 
     @NonNull
     @Override
-    public PalleteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View row = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false);
-        return new PalleteViewHolder(row);
-
+    public PalleteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        if(viewType == 1) {
+            View row = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false);
+            return new PalleteViewHolder(row);
+        } else {
+            View row = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false);
+            return new PalleteViewHolder(row);
+        }
     }
 
     @Override
@@ -44,6 +50,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
         return data.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    /**
+     *
+     */
     class PalleteViewHolder extends RecyclerView.ViewHolder {
 
         private View circleView;
@@ -55,6 +69,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
             circleView = itemView.findViewById(R.id.circleView);
             titleTextView = (TextView) itemView.findViewById(R.id.titleTextView);
             subtitleTextView = (TextView) itemView.findViewById(R.id.subtitleTextView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recyclerViewOnItemClickListener.onItemClick(getAdapterPosition());
+                }
+            });
         }
 
         public TextView getTitleTextView() {
@@ -69,4 +89,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.PalleteViewHol
             return circleView;
         }
     }
+
+    public interface RecyclerViewOnItemClickListener {
+        void onItemClick(int position);
+    }
+
 }

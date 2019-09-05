@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.nicolasfanin.IUASampleApp">
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -28,11 +28,12 @@
         <activity android:name=".activities.MyMainActivity"
         >
         </activity>
-        <activity android:name=".activities.ListActivity">
+        <activity android:name=".activities.RecyclerViewActivity">
+
         </activity>
         <activity android:name=".fragments.ActivityWithFragments">
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.CreditCardActivity">
+        <activity android:name=".activities.CreditCardActivity">
 
         </activity>
     </application>

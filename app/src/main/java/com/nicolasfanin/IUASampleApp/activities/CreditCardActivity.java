@@ -1,5 +1,6 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -32,5 +33,11 @@ public class CreditCardActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        setResult(RESULT_OK);
     }
 }
