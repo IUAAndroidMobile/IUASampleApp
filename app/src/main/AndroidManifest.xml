@@ -22,7 +22,7 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.MyMainActivity">
 
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.activities.ListActivity">
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.RecyclerViewActivity">
 
         </activity>
         <activity android:name="com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments">

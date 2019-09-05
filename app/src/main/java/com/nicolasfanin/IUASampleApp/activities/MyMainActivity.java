@@ -40,6 +40,8 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
+        getSupportActionBar().hide();
+
         navigatToSplashButton = findViewById(R.id.navigate_to_splash_button);
         layoutsActivityButton = findViewById(R.id.activity_layouts_button);
         selectContactButton = findViewById(R.id.select_contact_button);
@@ -120,7 +122,7 @@ public class MyMainActivity extends AppCompatActivity {
     }
 
     private void navigateToListActivity() {
-        Intent listIntent = new Intent(MyMainActivity.this, ListActivity.class);
+        Intent listIntent = new Intent(MyMainActivity.this, RecyclerViewActivity.class);
         startActivity(listIntent);
     }
 

@@ -6,13 +6,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 import com.nicolasfanin.IUASampleApp.data.Color;
 import com.nicolasfanin.IUASampleApp.utils.ListAdapter;
 import com.nicolasfanin.IUASampleApp.R;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity implements ListAdapter.RecyclerViewOnItemClickListener {
 
     private ArrayList<Color> colors;
 
@@ -20,11 +21,25 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        //Obtengo la información que quiero mostrar en el adapter.
         initColors();
 
+        // Encontrar el RecyclerView en el layout.
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+        //Setear el LayoutManager para el RecyclerView.
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ListAdapter(colors));
+
+        //Si quiero que el Recycler tenga un scroll horizontal debo reemplazar el Linear layout por el siguiente:
+        // recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+
+        // El RecyclerView deberá tener su Adapter.
+        recyclerView.setAdapter(new ListAdapter(colors, this));
+
+        // Si quisiera de esta forma podemos agregar un elemento visual a cada item del recycler.
+        //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
     @SuppressLint("ResourceType")
@@ -47,4 +62,9 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this,"Su color es: " + colors.get(position).getName(), Toast.LENGTH_SHORT).show();
+
+    }
 }
