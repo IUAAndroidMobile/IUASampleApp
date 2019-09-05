@@ -40,6 +40,7 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
+        // Ocultar la barra de acción.
         getSupportActionBar().hide();
 
         navigatToSplashButton = findViewById(R.id.navigate_to_splash_button);
