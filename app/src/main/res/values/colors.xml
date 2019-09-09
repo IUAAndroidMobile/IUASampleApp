@@ -16,4 +16,6 @@
     <item name="deeppurple" type="color">#673AB7</item>
     <item name="cyan" type="color">#00BCD4</item>
     <item name="brown" type="color">#795548</item>
+
+    <item name="grey" type="color">#DDD</item>
 </resources>
