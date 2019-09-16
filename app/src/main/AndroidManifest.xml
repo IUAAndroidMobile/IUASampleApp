@@ -25,7 +25,7 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.RecyclerViewActivity">
 
         </activity>
-        <activity android:name="com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments">
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.ActivityWithFragments">
 
         </activity>
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.CreditCardActivity">

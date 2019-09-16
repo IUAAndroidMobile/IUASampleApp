@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.CreditCard;
-import com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.CREDIT_CARD;
 
