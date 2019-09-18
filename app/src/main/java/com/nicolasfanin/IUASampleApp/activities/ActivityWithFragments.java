@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.fragments.MailDetailsFragment;
+import com.nicolasfanin.IUASampleApp.fragments.OneFragment;
 
 public class ActivityWithFragments extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class ActivityWithFragments extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         //3. Agregar el fragment al contenedor.
-        fragmentTransaction.replace(R.id.dinamic_fragment, new MailDetailsFragment());
+        fragmentTransaction.replace(R.id.dinamic_fragment, new OneFragment());
 
         //fragmentTransaction.addToBackStack(null);
 

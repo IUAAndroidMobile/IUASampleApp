@@ -31,6 +31,10 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.CreditCardActivity">
 
         </activity>
+
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.MailActivity">
+
+        </activity>
     </application>
 
 </manifest>

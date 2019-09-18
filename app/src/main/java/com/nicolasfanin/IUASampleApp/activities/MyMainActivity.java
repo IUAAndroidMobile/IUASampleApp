@@ -29,6 +29,7 @@ public class MyMainActivity extends AppCompatActivity {
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
     private Button sendCreditCardButton;
+    private Button mailListButton;
 
     private TextInputEditText creditCardNumberTextView;
 
@@ -49,6 +50,7 @@ public class MyMainActivity extends AppCompatActivity {
         activityWithFragmentsButton = findViewById(R.id.activity_with_fragments);
         creditCardNumberTextView = (TextInputEditText) findViewById(R.id.credit_card_input_number);
         sendCreditCardButton = findViewById(R.id.send_credit_card_button);
+        mailListButton = findViewById(R.id.activity_mail_list);
 
         navigatToSplashButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +91,13 @@ public class MyMainActivity extends AppCompatActivity {
                 navigateToCreditCardActivity(new CreditCard(null, creditCardNumberTextView.getText().toString(), ""));
             }
         });
+        mailListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToActivityWithMailList();
+            }
+        });
+
 
     }
 
@@ -134,5 +143,10 @@ public class MyMainActivity extends AppCompatActivity {
         Intent listIntent = new Intent(MyMainActivity.this, CreditCardActivity.class);
         listIntent.putExtra(CREDIT_CARD, creditCard);
         startActivity(listIntent);
+    }
+
+    private void navigateToActivityWithMailList() {
+        Intent mailIntent = new Intent(MyMainActivity.this, MailActivity.class);
+        startActivity(mailIntent);
     }
 }
