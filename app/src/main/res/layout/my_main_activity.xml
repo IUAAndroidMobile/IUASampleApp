@@ -71,4 +71,13 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="10dp"/>
 
+    <Button android:id="@+id/activity_mail_list"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="60dp"
+            android:textSize="20dp"
+            android:text="Listado de Mails (Fragments)"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="10dp"/>
+
 </LinearLayout>
