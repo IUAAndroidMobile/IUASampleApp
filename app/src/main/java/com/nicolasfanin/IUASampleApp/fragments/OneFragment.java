@@ -14,7 +14,7 @@ public class OneFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return (View) inflater.inflate(R.layout.fragment_mail_details, container, false);
+        return (View) inflater.inflate(R.layout.fragment_one, container, false);
 
     }
 }
