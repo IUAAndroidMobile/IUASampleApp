@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+        <TextView
+                android:id="@+id/from_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="De: nicolas@fanin.com" />
+
+        <TextView
+                android:id="@+id/date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="19/9/2019" />
+    </TableRow>
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asunto: "
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/subject_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asunto del correo" />
+    </TableRow>
+
+    <TableRow
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/description_text_view"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contenido del correo..." />
+
+    </TableRow>
+
+</TableLayout>
