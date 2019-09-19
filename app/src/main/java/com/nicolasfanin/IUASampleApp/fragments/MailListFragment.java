@@ -40,6 +40,7 @@ public class MailListFragment extends Fragment implements AdapterView.OnItemClic
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Obtengo una referencia del listener, que será la activity que implemente MailListFragmentListener.
         listener = (MailListFragmentListener) getActivity();
 
         String[] entities = new String[mails.size()];
@@ -55,6 +56,7 @@ public class MailListFragment extends Fragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
 
+        //Llamo al método del listener y envio el mail que quier que se detalle.
         listener.navigateToMailDetailsScreen(mails.get(position));
     }
 

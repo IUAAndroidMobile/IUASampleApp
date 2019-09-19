@@ -57,15 +57,14 @@ public class MailActivity extends AppCompatActivity implements MailListFragment.
         mails.add(new Mail("a@b.com", "c@d.com", "Mail 4", "Contendio del correo", "18/9/2019"));
     }
 
+    //Implemento el/los métodos de la interfaz del listener.
     @Override
     public void navigateToMailDetailsScreen(Mail mail) {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
         Fragment mailDetailFragment = new MailDetailFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(MAIL_ITEM_DETAIL, mail);
         mailDetailFragment.setArguments(bundle);
-
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.replace(R.id.mail_container, mailDetailFragment).commit();
     }
