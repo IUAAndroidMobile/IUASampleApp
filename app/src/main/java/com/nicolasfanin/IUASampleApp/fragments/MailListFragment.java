@@ -25,6 +25,8 @@ public class MailListFragment extends Fragment implements AdapterView.OnItemClic
     private ArrayList<Mail> mails;
     private ListView listView;
 
+    private MailListFragmentListener listener;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,6 +39,9 @@ public class MailListFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        listener = (MailListFragmentListener) getActivity();
+
         String[] entities = new String[mails.size()];
         for (int i = 0; i < mails.size(); i++) {
             entities[i] = "De: " + mails.get(i).getFrom() + " \n " + mails.get(i).getSubject();
@@ -49,5 +54,14 @@ public class MailListFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
+
+        listener.navigateToMailDetailsScreen(mails.get(position));
+    }
+
+    //Agrego una interfaz para manejar el listener:
+    public interface MailListFragmentListener {
+
+        void navigateToMailDetailsScreen(Mail mail);
+
     }
 }
