@@ -19,6 +19,26 @@ public class Mail implements Parcelable {
         this.date = date;
     }
 
+    protected Mail(Parcel in) {
+        from = in.readString();
+        to = in.readString();
+        subject = in.readString();
+        content = in.readString();
+        date = in.readString();
+    }
+
+    public static final Creator<Mail> CREATOR = new Creator<Mail>() {
+        @Override
+        public Mail createFromParcel(Parcel in) {
+            return new Mail(in);
+        }
+
+        @Override
+        public Mail[] newArray(int size) {
+            return new Mail[size];
+        }
+    };
+
     public String getFrom() {
         return from;
     }
@@ -67,6 +87,10 @@ public class Mail implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeString(from);
+        dest.writeString(to);
+        dest.writeString(subject);
+        dest.writeString(content);
+        dest.writeString(date);
     }
 }
