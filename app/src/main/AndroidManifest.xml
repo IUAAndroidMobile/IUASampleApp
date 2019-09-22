@@ -35,6 +35,9 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.MailActivity">
 
         </activity>
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.DialogsActivity">
+
+        </activity>
     </application>
 
 </manifest>

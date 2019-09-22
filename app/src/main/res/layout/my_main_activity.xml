@@ -1,83 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        android:id="@+id/my_main_layout"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".activities.MyMainActivity">
+        android:layout_height="match_parent">
 
-    <Button android:id="@+id/navigate_to_splash_button"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/my_main_layout"
             android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Volver al Inicio"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".activities.MyMainActivity">
 
-    <Button android:id="@+id/activity_layouts_button"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Layouts"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <Button
+                android:id="@+id/navigate_to_splash_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Volver al Inicio"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-    <Button android:id="@+id/select_contact_button"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Mostrar Contactos"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <Button
+                android:id="@+id/activity_layouts_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Layouts"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-    <android.support.design.widget.TextInputEditText
-            android:id="@+id/credit_card_input_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrese su número"
-            android:layout_margin="10dp"
-            android:textSize="20dp"
-            android:inputType="number"/>
+        <Button
+                android:id="@+id/select_contact_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Mostrar Contactos"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-    <Button android:id="@+id/send_credit_card_button"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Datos de creditCard (Parcelable)"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/credit_card_input_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Ingrese su número"
+                android:inputType="number"
+                android:textSize="20dp" />
 
-    <Button android:id="@+id/list_activity_button"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Lista de Items"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <Button
+                android:id="@+id/send_credit_card_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Datos de creditCard (Parcelable)"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-    <Button android:id="@+id/activity_with_fragments"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Activity con Fragments"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <Button
+                android:id="@+id/list_activity_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Lista de Items"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-    <Button android:id="@+id/activity_mail_list"
-            android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_height="60dp"
-            android:textSize="20dp"
-            android:text="Listado de Mails (Fragments)"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
+        <Button
+                android:id="@+id/activity_with_fragments"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Activity con Fragments"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
 
-</LinearLayout>
+        <Button
+                android:id="@+id/activity_mail_list"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Listado de Mails (Fragments)"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+
+        <Button
+                android:id="@+id/activity_dialogs"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Dialogs"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+
+    </LinearLayout>
+</ScrollView>

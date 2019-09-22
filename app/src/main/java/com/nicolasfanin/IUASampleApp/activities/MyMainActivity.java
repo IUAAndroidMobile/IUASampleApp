@@ -23,13 +23,14 @@ public class MyMainActivity extends AppCompatActivity {
 
     static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
-    private Button navigatToSplashButton;
+    private Button navigateToSplashButton;
     private Button layoutsActivityButton;
     private Button selectContactButton;
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
     private Button sendCreditCardButton;
     private Button mailListButton;
+    private Button dialogsButton;
 
     private TextInputEditText creditCardNumberTextView;
 
@@ -43,7 +44,7 @@ public class MyMainActivity extends AppCompatActivity {
         // Ocultar la barra de acción.
         getSupportActionBar().hide();
 
-        navigatToSplashButton = findViewById(R.id.navigate_to_splash_button);
+        navigateToSplashButton = findViewById(R.id.navigate_to_splash_button);
         layoutsActivityButton = findViewById(R.id.activity_layouts_button);
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
@@ -51,8 +52,9 @@ public class MyMainActivity extends AppCompatActivity {
         creditCardNumberTextView = (TextInputEditText) findViewById(R.id.credit_card_input_number);
         sendCreditCardButton = findViewById(R.id.send_credit_card_button);
         mailListButton = findViewById(R.id.activity_mail_list);
+        dialogsButton = findViewById(R.id.activity_dialogs);
 
-        navigatToSplashButton.setOnClickListener(new View.OnClickListener() {
+        navigateToSplashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayout linearLayout = findViewById(R.id.my_main_layout);
@@ -95,6 +97,13 @@ public class MyMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 navigateToActivityWithMailList();
+            }
+        });
+
+        dialogsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToDialogsScreen();
             }
         });
 
@@ -147,6 +156,11 @@ public class MyMainActivity extends AppCompatActivity {
 
     private void navigateToActivityWithMailList() {
         Intent mailIntent = new Intent(MyMainActivity.this, MailActivity.class);
+        startActivity(mailIntent);
+    }
+
+    private void navigateToDialogsScreen() {
+        Intent mailIntent = new Intent(MyMainActivity.this, DialogsActivity.class);
         startActivity(mailIntent);
     }
 }
