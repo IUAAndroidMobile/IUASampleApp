@@ -23,4 +23,7 @@
     <string name="cyan">Cyan</string>
     <string name="brown">Brown</string>
     <string name="your_credit_card_number">Su número de creditCard:</string>
+    <string name="dialog_message">Este es un AlertDialog!</string>
+    <string name="dialog_positive_button">Aceptar</string>
+    <string name="dialog_negative_button">Cancelar</string>
 </resources>
