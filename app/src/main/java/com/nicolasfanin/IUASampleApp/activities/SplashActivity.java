@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.nicolasfanin.IUASampleApp.R;
+import com.nicolasfanin.IUASampleApp.preferences.PreferencesUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //Inicializar SharedPrefernces.
+        PreferencesUtils prefs = new PreferencesUtils(getBaseContext());
 
         Button initButton = findViewById(R.id.init_button);
         initButton.setOnClickListener(new View.OnClickListener() {
