@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:key="user preference"
+            android:title="User">
+        <EditTextPreference
+                android:key="user_name"
+                android:title="Your User"></EditTextPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:key="boolean preference"
+            android:title="Un Dato Booleano">
+        <CheckBoxPreference
+                android:key="boolean_preference"
+                android:title="Boolean!"></CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:key="switch preference"
+            android:title="Switch Preference">
+        <SwitchPreference
+                android:key="switch_prefernece"
+                android:title="Switch!!!"></SwitchPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

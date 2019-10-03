@@ -20,9 +20,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.CreditCard;
 
