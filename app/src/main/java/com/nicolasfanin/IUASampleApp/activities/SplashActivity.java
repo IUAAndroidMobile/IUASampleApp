@@ -60,6 +60,10 @@ public class SplashActivity extends AppCompatActivity {
             case R.id.user_item:
                 Toast.makeText(this, "Usuario item seleccionado", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.settings_item:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -38,6 +38,9 @@
         <activity android:name="com.nicolasfanin.IUASampleApp.activities.DialogsActivity">
 
         </activity>
+        <activity android:name="com.nicolasfanin.IUASampleApp.activities.SettingsActivity">
+
+        </activity>
     </application>
 
 </manifest>

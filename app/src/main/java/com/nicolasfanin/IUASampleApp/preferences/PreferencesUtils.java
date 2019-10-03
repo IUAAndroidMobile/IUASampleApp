@@ -2,6 +2,7 @@ package com.nicolasfanin.IUASampleApp.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 /**
  * Esta clase gestiona todas las Preferencias de la app de un modo simplificado.
@@ -19,7 +20,8 @@ public class PreferencesUtils {
 
     public PreferencesUtils(Context context) {
         this.context = context;
-        sharedPreferences = this.context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        //sharedPreferences = this.context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     public void setUserName(String userName) {
