@@ -8,10 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.Mail;
+import com.nicolasfanin.IUASampleApp.database.MyDatabase;
 import com.nicolasfanin.IUASampleApp.fragments.MailDetailFragment;
 import com.nicolasfanin.IUASampleApp.fragments.MailListFragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.MAIL_ITEM_DETAIL;
 import static com.nicolasfanin.IUASampleApp.utils.Constants.MAIL_LIST;
@@ -38,6 +41,11 @@ public class MailActivity extends AppCompatActivity implements MailListFragment.
         //Crear el fragment y enviar la data.
         Fragment mailListFragment = new MailListFragment();
 
+        if (mails == null) {
+            MyDatabase database = MyDatabase.getInstance(this);
+            mails = new ArrayList<Mail>( database.getMails());
+        }
+
         Bundle bundle = new Bundle();
         //Agrego el parcelabe como argument al bundle.
         bundle.putParcelableArrayList(MAIL_LIST, mails);
@@ -49,12 +57,13 @@ public class MailActivity extends AppCompatActivity implements MailListFragment.
 
     //Generate data
     private void initMails() {
-        mails = new ArrayList<Mail>();
+        MyDatabase database = MyDatabase.getInstance(this);
 
-        mails.add(new Mail("a@b.com", "c@d.com", "Mail 1", "Contendio del correo", "18/9/2019"));
-        mails.add(new Mail("a@b.com", "c@d.com", "Mail 2", "Contendio del correo", "18/9/2019"));
-        mails.add(new Mail("a@b.com", "c@d.com", "Mail 3", "Contendio del correo", "18/9/2019"));
-        mails.add(new Mail("a@b.com", "c@d.com", "Mail 4", "Contendio del correo", "18/9/2019"));
+        database.addMail(new Mail("a@b.com", "cc@dd.com", "Mail 1", "Contendio del correo 1", "18/9/2019"));
+        database.addMail(new Mail("a@b.com", "ee@ff.com", "Mail 2", "Contendio del correo 2", "18/9/2019"));
+        database.addMail(new Mail("a@b.com", "gg@hh.com", "Mail 3", "Contendio del correo 3", "18/9/2019"));
+        database.addMail(new Mail("a@b.com", "ii@jj.com", "Mail 4", "Contendio del correo 4", "18/9/2019"));
+
     }
 
     //Implemento el/los métodos de la interfaz del listener.
