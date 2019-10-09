@@ -14,7 +14,6 @@ public class PreferencesUtils {
 
     //Declaramos los nombres de las propiedades que vamos a almacenar.
     private String USER_NAME = "user_name";
-    private String USER_MAIL = "user_mail";
 
     private static final String PREFS_NAME ="com.nicolasfanin.IUASampleApp.prefs";
 
