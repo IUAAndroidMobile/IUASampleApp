@@ -59,11 +59,12 @@ public class MailActivity extends AppCompatActivity implements MailListFragment.
     private void initMails() {
         MyDatabase database = MyDatabase.getInstance(this);
 
-        database.addMail(new Mail("a@b.com", "cc@dd.com", "Mail 1", "Contendio del correo 1", "18/9/2019"));
-        database.addMail(new Mail("a@b.com", "ee@ff.com", "Mail 2", "Contendio del correo 2", "18/9/2019"));
-        database.addMail(new Mail("a@b.com", "gg@hh.com", "Mail 3", "Contendio del correo 3", "18/9/2019"));
-        database.addMail(new Mail("a@b.com", "ii@jj.com", "Mail 4", "Contendio del correo 4", "18/9/2019"));
-
+        if (database.getMails() == null) {
+            database.addMail(new Mail("a@b.com", "cc@dd.com", "Mail 1", "Contendio del correo 1", "18/9/2019"));
+            database.addMail(new Mail("a@b.com", "ee@ff.com", "Mail 2", "Contendio del correo 2", "18/9/2019"));
+            database.addMail(new Mail("a@b.com", "gg@hh.com", "Mail 3", "Contendio del correo 3", "18/9/2019"));
+            database.addMail(new Mail("a@b.com", "ii@jj.com", "Mail 4", "Contendio del correo 4", "18/9/2019"));
+        }
     }
 
     //Implemento el/los métodos de la interfaz del listener.
