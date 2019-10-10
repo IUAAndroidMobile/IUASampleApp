@@ -37,6 +37,7 @@ public class MyMainActivity extends AppCompatActivity {
     private Button sendCreditCardButton;
     private Button mailListButton;
     private Button dialogsButton;
+    private Button fileManagementButton;
 
     private TextInputEditText creditCardNumberTextView;
 
@@ -51,14 +52,14 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
-        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
+        dl = (DrawerLayout) findViewById(R.id.activity_main);
+        t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
 
         dl.addDrawerListener(t);
         t.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = (NavigationView)findViewById(R.id.nv);
+        nv = (NavigationView) findViewById(R.id.nv);
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -77,6 +78,7 @@ public class MyMainActivity extends AppCompatActivity {
         sendCreditCardButton = findViewById(R.id.send_credit_card_button);
         mailListButton = findViewById(R.id.activity_mail_list);
         dialogsButton = findViewById(R.id.activity_dialogs);
+        fileManagementButton = findViewById(R.id.file_management_button);
 
         navigateToSplashButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +133,14 @@ public class MyMainActivity extends AppCompatActivity {
             }
         });
 
-
+        fileManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToSaveFileActivity();
+            }
+        });
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -193,7 +201,12 @@ public class MyMainActivity extends AppCompatActivity {
     }
 
     private void navigateToDialogsScreen() {
-        Intent mailIntent = new Intent(MyMainActivity.this, DialogsActivity.class);
-        startActivity(mailIntent);
+        Intent dialogIntent = new Intent(MyMainActivity.this, DialogsActivity.class);
+        startActivity(dialogIntent);
+    }
+
+    private void navigateToSaveFileActivity() {
+        Intent fileIntent = new Intent(MyMainActivity.this, SaveFileActivity.class);
+        startActivity(fileIntent);
     }
 }
