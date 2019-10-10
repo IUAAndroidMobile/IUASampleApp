@@ -108,6 +108,16 @@
                     android:textColor="@android:color/white"
                     android:textSize="20dp" />
 
+            <Button
+                    android:id="@+id/file_management_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Guardar / Leer un Archivo"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dp" />
+
         </LinearLayout>
     </ScrollView>
 
