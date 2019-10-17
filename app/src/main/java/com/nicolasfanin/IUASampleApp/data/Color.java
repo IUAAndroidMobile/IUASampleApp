@@ -1,7 +1,14 @@
 package com.nicolasfanin.IUASampleApp.data;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
+@Entity(tableName = "color_table")
 public class Color {
 
+    @PrimaryKey
+    @NonNull
     private String name;
     private String hex;
 

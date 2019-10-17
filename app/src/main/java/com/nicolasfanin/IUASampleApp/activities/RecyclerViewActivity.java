@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
 import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.database.ColorDao;
+import com.nicolasfanin.IUASampleApp.database.ColorRepository;
+import com.nicolasfanin.IUASampleApp.database.IUARoomDatabase;
 import com.nicolasfanin.IUASampleApp.utils.ListAdapter;
 import com.nicolasfanin.IUASampleApp.R;
 
@@ -17,10 +21,14 @@ public class RecyclerViewActivity extends AppCompatActivity implements ListAdapt
 
     private ArrayList<Color> colors;
 
+    private ColorRepository colorRepository;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        colorRepository = new ColorRepository(getApplication());
 
         //Obtengo la información que quiero mostrar en el adapter.
         initColors();
@@ -44,27 +52,30 @@ public class RecyclerViewActivity extends AppCompatActivity implements ListAdapt
 
     @SuppressLint("ResourceType")
     private void initColors() {
-        colors = new ArrayList<>();
 
-        colors.add(new Color(getString(R.string.blue), getResources().getString(R.color.blue)));
-        colors.add(new Color(getString(R.string.indigo), getResources().getString(R.color.indigo)));
-        colors.add(new Color(getString(R.string.red), getResources().getString(R.color.red)));
-        colors.add(new Color(getString(R.string.green), getResources().getString(R.color.green)));
-        colors.add(new Color(getString(R.string.orange), getResources().getString(R.color.orange)));
-        colors.add(new Color(getString(R.string.grey), getResources().getString(R.color.bluegrey)));
-        colors.add(new Color(getString(R.string.amber), getResources().getString(R.color.teal)));
-        colors.add(new Color(getString(R.string.deeppurple), getResources().getString(R.color.deeppurple)));
-        colors.add(new Color(getString(R.string.bluegrey), getResources().getString(R.color.bluegrey)));
-        colors.add(new Color(getString(R.string.yellow), getResources().getString(R.color.yellow)));
-        colors.add(new Color(getString(R.string.cyan), getResources().getString(R.color.cyan)));
-        colors.add(new Color(getString(R.string.brown), getResources().getString(R.color.brown)));
-        colors.add(new Color(getString(R.string.teal), getResources().getString(R.color.teal)));
+        if (colorRepository.getAllColors().isEmpty()) {
+            colorRepository.insert(new Color(getString(R.string.blue), getResources().getString(R.color.blue)));
+            colorRepository.insert(new Color(getString(R.string.indigo), getResources().getString(R.color.indigo)));
+            colorRepository.insert(new Color(getString(R.string.red), getResources().getString(R.color.red)));
+            colorRepository.insert(new Color(getString(R.string.green), getResources().getString(R.color.green)));
+            colorRepository.insert(new Color(getString(R.string.orange), getResources().getString(R.color.orange)));
+            colorRepository.insert(new Color(getString(R.string.grey), getResources().getString(R.color.bluegrey)));
+            colorRepository.insert(new Color(getString(R.string.amber), getResources().getString(R.color.teal)));
+            colorRepository.insert(new Color(getString(R.string.deeppurple), getResources().getString(R.color.deeppurple)));
+            colorRepository.insert(new Color(getString(R.string.bluegrey), getResources().getString(R.color.bluegrey)));
+            colorRepository.insert(new Color(getString(R.string.yellow), getResources().getString(R.color.yellow)));
+            colorRepository.insert(new Color(getString(R.string.cyan), getResources().getString(R.color.cyan)));
+            colorRepository.insert(new Color(getString(R.string.brown), getResources().getString(R.color.brown)));
+            colorRepository.insert(new Color(getString(R.string.teal), getResources().getString(R.color.teal)));
+        }
+
+        colors = (ArrayList<Color>) colorRepository.getAllColors();
 
     }
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(this,"Su color es: " + colors.get(position).getName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Su color es: " + colors.get(position).getName(), Toast.LENGTH_SHORT).show();
 
     }
 }
