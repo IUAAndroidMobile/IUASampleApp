@@ -1,8 +1,6 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.security.keystore.KeyGenParameterSpec;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,10 +11,8 @@ import com.nicolasfanin.IUASampleApp.R;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
