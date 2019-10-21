@@ -5,18 +5,23 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.CreditCard;
-import com.nicolasfanin.IUASampleApp.fragments.ActivityWithFragments;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.CREDIT_CARD;
 
@@ -24,15 +29,22 @@ public class MyMainActivity extends AppCompatActivity {
 
     static final int PICK_CONTACT_REQUEST = 1;  // Request code que me permite hacer multiples startActivityForResult.
 
-    private Button navigatToSplashButton;
+    private Button navigateToSplashButton;
     private Button layoutsActivityButton;
     private Button selectContactButton;
     private Button listActivityButton;
     private Button activityWithFragmentsButton;
     private Button networkingActivityButton;
     private Button sendCreditCardButton;
+    private Button mailListButton;
+    private Button dialogsButton;
+    private Button fileManagementButton;
 
     private TextInputEditText creditCardNumberTextView;
+
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
 
 
     @SuppressLint("WrongViewCast")
@@ -41,10 +53,23 @@ public class MyMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_main_activity);
 
-        // Ocultar la barra de acción.
-        getSupportActionBar().hide();
+        dl = (DrawerLayout) findViewById(R.id.activity_main);
+        t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
 
-        navigatToSplashButton = findViewById(R.id.navigate_to_splash_button);
+        dl.addDrawerListener(t);
+        t.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        nv = (NavigationView) findViewById(R.id.nv);
+
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                return true;
+            }
+        });
+
+        navigateToSplashButton = findViewById(R.id.navigate_to_splash_button);
         layoutsActivityButton = findViewById(R.id.activity_layouts_button);
         selectContactButton = findViewById(R.id.select_contact_button);
         listActivityButton = findViewById(R.id.list_activity_button);
@@ -52,8 +77,11 @@ public class MyMainActivity extends AppCompatActivity {
         creditCardNumberTextView = (TextInputEditText) findViewById(R.id.credit_card_input_number);
         sendCreditCardButton = findViewById(R.id.send_credit_card_button);
         networkingActivityButton = findViewById(R.id.networking_activity_button);
+        mailListButton = findViewById(R.id.activity_mail_list);
+        dialogsButton = findViewById(R.id.activity_dialogs);
+        fileManagementButton = findViewById(R.id.file_management_button);
 
-        navigatToSplashButton.setOnClickListener(new View.OnClickListener() {
+        navigateToSplashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayout linearLayout = findViewById(R.id.my_main_layout);
@@ -92,6 +120,12 @@ public class MyMainActivity extends AppCompatActivity {
                 navigateToCreditCardActivity(new CreditCard(null, creditCardNumberTextView.getText().toString(), ""));
             }
         });
+        mailListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToActivityWithMailList();
+            }
+        });
         networkingActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +133,30 @@ public class MyMainActivity extends AppCompatActivity {
             }
         });
 
+        dialogsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToDialogsScreen();
+            }
+        });
+
+        fileManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToSaveFileActivity();
+            }
+        });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(t.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void navigateToLayoutsActivity() {
         Intent listIntent = new Intent(MyMainActivity.this, LayoutsActivity.class);
@@ -143,6 +200,21 @@ public class MyMainActivity extends AppCompatActivity {
         Intent listIntent = new Intent(MyMainActivity.this, CreditCardActivity.class);
         listIntent.putExtra(CREDIT_CARD, creditCard);
         startActivity(listIntent);
+    }
+
+    private void navigateToActivityWithMailList() {
+        Intent mailIntent = new Intent(MyMainActivity.this, MailActivity.class);
+        startActivity(mailIntent);
+    }
+
+    private void navigateToDialogsScreen() {
+        Intent dialogIntent = new Intent(MyMainActivity.this, DialogsActivity.class);
+        startActivity(dialogIntent);
+    }
+
+    private void navigateToSaveFileActivity() {
+        Intent fileIntent = new Intent(MyMainActivity.this, SaveFileActivity.class);
+        startActivity(fileIntent);
     }
 
     private void navigateToActivityNetworking() {

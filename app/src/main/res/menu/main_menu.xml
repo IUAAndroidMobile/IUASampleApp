@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/item1"
-          android:title="@string/item1"
-          android:icon="@drawable/baseline_person_black_18dp"
-          app:showAsAction="withText"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/add_new_item"
+            android:icon="@drawable/baseline_add_circle_black_18"
+            android:title="Nuevo item"
+            app:showAsAction="ifRoom" />
+    <item
+            android:id="@+id/user_item"
+            android:icon="@drawable/baseline_person_black_18dp"
+            android:title="Usuario" />
 
+    <item
+            android:id="@+id/settings_item"
+            android:title="Settings" />
 </menu>
