@@ -33,6 +33,7 @@ public class ColorRepository {
         new insertColorsAsyncTask(colorDao).execute(color);
     }
 
+    // AsyncTask
     private static class insertColorsAsyncTask extends AsyncTask<Color, Void, Void> {
 
         private ColorDao asyncTaskColorDao;
@@ -48,6 +49,7 @@ public class ColorRepository {
         }
     }
 
+    // AsyncTask
     private static class getColorsAsyncTask extends AsyncTask<Void, Void, List<Color>> {
         private ColorDao asyncTaskColorDao;
 

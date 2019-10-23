@@ -7,7 +7,7 @@ import android.content.Context;
 
 import com.nicolasfanin.IUASampleApp.data.Color;
 
-@Database(entities = {Color.class}, version = 1)
+@Database(entities = {Color.class}, version = 1, exportSchema = false)
 public abstract class IUARoomDatabase extends RoomDatabase {
 
     public abstract ColorDao colorDao();
