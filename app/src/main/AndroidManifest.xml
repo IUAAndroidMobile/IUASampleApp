@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.nicolasfanin.IUASampleApp">
+        package="com.nicolasfanin.IUASampleApp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,27 +17,21 @@
             android:theme="@style/AppTheme">
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LayoutsActivity">
-        </activity>
-        <activity android:name=".activities.MyMainActivity"
-        >
-        </activity>
-        <activity android:name=".activities.RecyclerViewActivity">
-
-        </activity>
-        <activity android:name=".activities.MailActivity">
-        </activity>
-        <activity android:name=".activities.CreditCardActivity">
-
-        </activity>
-        <activity
-                android:name=".activities.GitHubRepoActivity">
-        </activity>
+        <activity android:name=".activities.LayoutsActivity"></activity>
+        <activity android:name=".activities.MyMainActivity"></activity>
+        <activity android:name=".activities.RecyclerViewActivity"></activity>
+        <activity android:name=".activities.MailActivity"></activity>
+        <activity android:name=".activities.CreditCardActivity"></activity>
+        <activity android:name=".activities.GitHubRepoActivity"></activity>
+        <activity android:name=".activities.SettingsActivity"></activity>
+        <activity android:name=".activities.ActivityWithFragments"></activity>
+        <activity android:name=".activities.DialogsActivity"></activity>
+        <activity android:name=".activities.SaveFileActivity"></activity>
     </application>
 
 </manifest>
