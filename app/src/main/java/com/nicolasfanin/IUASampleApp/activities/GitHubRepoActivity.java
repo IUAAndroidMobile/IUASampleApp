@@ -105,5 +105,4 @@ public class GitHubRepoActivity extends AppCompatActivity {
             return null;
         }
     }
-
 }

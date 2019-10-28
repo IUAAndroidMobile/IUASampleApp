@@ -30,7 +30,7 @@
         <activity android:name=".activities.RecyclerViewActivity">
 
         </activity>
-        <activity android:name=".fragments.ActivityWithFragments">
+        <activity android:name=".activities.MailActivity">
         </activity>
         <activity android:name=".activities.CreditCardActivity">
 
