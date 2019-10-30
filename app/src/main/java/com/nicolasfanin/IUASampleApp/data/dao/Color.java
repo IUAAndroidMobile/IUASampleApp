@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp.data;
+package com.nicolasfanin.IUASampleApp.data.dao;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

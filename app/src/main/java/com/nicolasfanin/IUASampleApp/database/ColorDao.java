@@ -5,7 +5,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.data.dao.Color;
 
 import java.util.List;
 

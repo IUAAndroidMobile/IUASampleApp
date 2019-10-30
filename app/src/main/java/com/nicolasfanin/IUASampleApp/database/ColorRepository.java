@@ -3,7 +3,7 @@ package com.nicolasfanin.IUASampleApp.database;
 import android.app.Application;
 import android.os.AsyncTask;
 
-import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.data.dao.Color;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;

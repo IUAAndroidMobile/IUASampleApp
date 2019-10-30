@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.nicolasfanin.IUASampleApp.data.Mail;
-import com.nicolasfanin.IUASampleApp.data.User;
+import com.nicolasfanin.IUASampleApp.data.dao.Mail;
+import com.nicolasfanin.IUASampleApp.data.dao.User;
 
 import java.util.ArrayList;
 import java.util.List;

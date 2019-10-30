@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.data.dao.Color;
 
 @Database(entities = {Color.class}, version = 1, exportSchema = false)
 public abstract class IUARoomDatabase extends RoomDatabase {

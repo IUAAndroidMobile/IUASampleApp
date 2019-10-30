@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.data.Mail;
+import com.nicolasfanin.IUASampleApp.data.dao.Mail;
 
 import java.util.ArrayList;
 

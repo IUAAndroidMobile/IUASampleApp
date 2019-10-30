@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.data.Color;
+import com.nicolasfanin.IUASampleApp.data.dao.Color;
 
 import java.util.List;
 
