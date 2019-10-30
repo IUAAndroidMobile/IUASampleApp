@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.data.Mail;
+import com.nicolasfanin.IUASampleApp.data.dao.Mail;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.MAIL_ITEM_DETAIL;
 

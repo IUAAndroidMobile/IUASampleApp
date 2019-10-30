@@ -19,6 +19,7 @@
             android:title="Switch Preference">
         <SwitchPreference
                 android:key="switch_prefernece"
-                android:title="Switch!!!"></SwitchPreference>
+                android:title="Switch!!!"
+                android:defaultValue="true"></SwitchPreference>
     </PreferenceCategory>
 </PreferenceScreen>

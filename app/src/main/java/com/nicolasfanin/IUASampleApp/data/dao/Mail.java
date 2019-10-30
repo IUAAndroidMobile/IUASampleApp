@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp.data;
+package com.nicolasfanin.IUASampleApp.data.dao;
 
 import android.os.Parcel;
 import android.os.Parcelable;

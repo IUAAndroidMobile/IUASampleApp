@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.data.User;
+import com.nicolasfanin.IUASampleApp.data.dao.User;
 import com.nicolasfanin.IUASampleApp.database.MyDatabase;
 import com.nicolasfanin.IUASampleApp.preferences.PreferencesUtils;
 

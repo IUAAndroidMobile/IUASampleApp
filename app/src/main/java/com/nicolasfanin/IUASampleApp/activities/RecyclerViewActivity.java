@@ -8,10 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.nicolasfanin.IUASampleApp.data.Color;
-import com.nicolasfanin.IUASampleApp.database.ColorDao;
+import com.nicolasfanin.IUASampleApp.data.dao.Color;
 import com.nicolasfanin.IUASampleApp.database.ColorRepository;
-import com.nicolasfanin.IUASampleApp.database.IUARoomDatabase;
 import com.nicolasfanin.IUASampleApp.utils.ListAdapter;
 import com.nicolasfanin.IUASampleApp.R;
 

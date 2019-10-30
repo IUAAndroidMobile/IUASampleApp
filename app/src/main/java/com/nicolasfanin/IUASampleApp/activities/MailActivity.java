@@ -7,14 +7,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.nicolasfanin.IUASampleApp.R;
-import com.nicolasfanin.IUASampleApp.data.Mail;
+import com.nicolasfanin.IUASampleApp.data.dao.Mail;
 import com.nicolasfanin.IUASampleApp.database.MyDatabase;
 import com.nicolasfanin.IUASampleApp.fragments.MailDetailFragment;
 import com.nicolasfanin.IUASampleApp.fragments.MailListFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static com.nicolasfanin.IUASampleApp.utils.Constants.MAIL_ITEM_DETAIL;
 import static com.nicolasfanin.IUASampleApp.utils.Constants.MAIL_LIST;

@@ -1,4 +1,4 @@
-package com.nicolasfanin.IUASampleApp.data;
+package com.nicolasfanin.IUASampleApp.data.dao;
 
 public class User {
 
