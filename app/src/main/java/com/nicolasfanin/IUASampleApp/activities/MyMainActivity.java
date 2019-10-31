@@ -218,7 +218,7 @@ public class MyMainActivity extends AppCompatActivity {
     }
 
     private void navigateToActivityNetworking() {
-        startActivity(new Intent(MyMainActivity.this, GitHubRepoActivity.class));
-
+        //startActivity(new Intent(MyMainActivity.this, GitHubRepoActivity.class));
+        startActivity(new Intent(MyMainActivity.this, GitHubRepoWithGsonActivity.class));
     }
 }
