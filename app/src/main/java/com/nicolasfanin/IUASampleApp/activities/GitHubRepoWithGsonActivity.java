@@ -6,6 +6,8 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nicolasfanin.IUASampleApp.R;
 import com.nicolasfanin.IUASampleApp.data.dto.GitHubRepo;
+import com.nicolasfanin.IUASampleApp.fragments.GitHubRepoListFragment;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -25,9 +28,12 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import static com.nicolasfanin.IUASampleApp.utils.Constants.GIT_HUB_REPO;
 
 public class GitHubRepoWithGsonActivity extends AppCompatActivity {
 
@@ -37,9 +43,9 @@ public class GitHubRepoWithGsonActivity extends AppCompatActivity {
 
     private static Gson gson;
 
-    private URL url;
+    private ArrayList<GitHubRepo> list;
 
-    private List<GitHubRepo> list;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +64,8 @@ public class GitHubRepoWithGsonActivity extends AppCompatActivity {
                 String repos = "";
                 if (isNetworkConnected()) {
                     try {
-                        list = new DownloadInfoTask().execute(githubEditText.getText().toString()).get();
+                        list = new ArrayList<>();
+                        list.addAll(new DownloadInfoTask().execute(githubEditText.getText().toString()).get());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
@@ -69,6 +76,18 @@ public class GitHubRepoWithGsonActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void chargeGitHubRepoFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        Fragment gitHubRepoListFragment = new GitHubRepoListFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(GIT_HUB_REPO, list);
+        gitHubRepoListFragment.setArguments(bundle);
+
+        fragmentTransaction.replace(R.id.result_fragment, gitHubRepoListFragment).commit();
     }
 
     // Método que chequea si hay conexión a Internet.
@@ -114,6 +133,12 @@ public class GitHubRepoWithGsonActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<GitHubRepo> gitHubRepoList) {
+            super.onPostExecute(gitHubRepoList);
+            chargeGitHubRepoFragment();
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.nicolasfanin.IUASampleApp.data.dto;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class GitHubRepo {
+public class GitHubRepo implements Parcelable {
 
     @SerializedName("id")
     private long id;
@@ -24,6 +27,27 @@ public class GitHubRepo {
     @SerializedName("open_issues_count")
     private String openIssues;
 
+
+    protected GitHubRepo(Parcel in) {
+        id = in.readLong();
+        name = in.readString();
+        htmlUrl = in.readString();
+        description = in.readString();
+        language = in.readString();
+        openIssues = in.readString();
+    }
+
+    public static final Creator<GitHubRepo> CREATOR = new Creator<GitHubRepo>() {
+        @Override
+        public GitHubRepo createFromParcel(Parcel in) {
+            return new GitHubRepo(in);
+        }
+
+        @Override
+        public GitHubRepo[] newArray(int size) {
+            return new GitHubRepo[size];
+        }
+    };
 
     public long getId() {
         return id;
@@ -95,5 +119,15 @@ public class GitHubRepo {
 
     public void setOpenIssues(String openIssues) {
         this.openIssues = openIssues;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
     }
 }
