@@ -1,8 +1,14 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,6 +52,8 @@ public class SplashActivity extends AppCompatActivity {
         getResources().getDrawable(R.drawable.logo);
         String[] miArrayString = getResources().getStringArray(R.array.mi_array);
         setTitle(miArrayString[0]);
+
+        sendWelcomeNotification();
     }
 
     @Override
@@ -110,5 +118,18 @@ public class SplashActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void sendWelcomeNotification() {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NotificationChannel.DEFAULT_CHANNEL_ID)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("IUA APP")
+                .setContentText("Welcome to IUA Sample APP!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
+
     }
 }
