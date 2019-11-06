@@ -3,6 +3,7 @@ package com.nicolasfanin.IUASampleApp.activities;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -122,10 +123,18 @@ public class SplashActivity extends AppCompatActivity {
 
     private void sendWelcomeNotification() {
 
+        //Setear una acción a la notificación:
+        Intent intent = new Intent(this, MyMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo)
-                .setContentTitle("IUA APP")
-                .setContentText("Welcome to IUA Sample APP!")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(getString(R.string.notification_message))
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -140,6 +149,5 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         notificationManager.notify(1, builder.build());
-
     }
 }
