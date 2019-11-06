@@ -1,14 +1,12 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
 import android.app.AlertDialog;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,6 +26,8 @@ public class SplashActivity extends AppCompatActivity {
 
     private EditText userNameEditText;
     private EditText userPassEditText;
+
+    private static final String NOTIFICATION_CHANNEL_ID = "my_channel";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,13 +122,23 @@ public class SplashActivity extends AppCompatActivity {
 
     private void sendWelcomeNotification() {
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NotificationChannel.DEFAULT_CHANNEL_ID)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.logo)
                 .setContentTitle("IUA APP")
                 .setContentText("Welcome to IUA Sample APP!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        //Crear el Notification Channel para versiones de android posteriores a API 26.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.app_name);
+            String description = getString(R.string.channel_description);
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, NotificationManager.IMPORTANCE_LOW);
+            notificationChannel.setDescription(description);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
         notificationManager.notify(1, builder.build());
 
     }

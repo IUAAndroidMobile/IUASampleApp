@@ -3,6 +3,7 @@
     <string name="title_activity_exercise1">Exercise1Activity</string>
     <string name="item1">Item 1</string>
     <string name="hola">Hola! %1$s</string>
+    <string name="channel_description">Description!</string>
 
     <string name="subtitulo_splash">TECNOLOGIAS MOVILES</string>
 
