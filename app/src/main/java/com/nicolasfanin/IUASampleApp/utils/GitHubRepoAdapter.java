@@ -30,6 +30,7 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         GitHubRepo githubRepo = gitHubRepoList.get(i);
         ((GitHubRepoViewHolder) viewHolder).getGitHubRepoNameTextView().setText(githubRepo.getName());
+        ((GitHubRepoViewHolder) viewHolder).getownerTextview().setText(githubRepo.getOwnerDTO().getLogin());
     }
 
     @Override
@@ -41,14 +42,20 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     class GitHubRepoViewHolder extends RecyclerView.ViewHolder {
 
         private TextView gitHubRepoTextView;
+        private TextView ownerTextView;
 
         public GitHubRepoViewHolder(@NonNull View itemView) {
             super(itemView);
             gitHubRepoTextView = itemView.findViewById(R.id.git_hub_repo_text_view);
+            ownerTextView = itemView.findViewById(R.id.git_hub_owner);
         }
 
         public TextView getGitHubRepoNameTextView() {
             return gitHubRepoTextView;
+        }
+
+        public TextView getownerTextview() {
+            return ownerTextView;
         }
     }
 }

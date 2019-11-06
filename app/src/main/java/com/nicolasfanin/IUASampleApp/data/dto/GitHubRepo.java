@@ -13,6 +13,7 @@ public class GitHubRepo implements Parcelable {
     private long id;
     @SerializedName("name")
     private String name;
+    @SerializedName("owner")
     private Owner ownerDTO;
     @SerializedName("html_url")
     private String htmlUrl;
