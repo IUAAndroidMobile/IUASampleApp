@@ -6,10 +6,10 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nicolasfanin.IUASampleApp.R;
@@ -25,6 +25,9 @@ public class GitHubRepoActivity extends AppCompatActivity {
     private EditText githubEditText;
     private Button searchButton;
     private TextView contentTextView;
+    private ProgressBar progressBar;
+
+    private String response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +37,25 @@ public class GitHubRepoActivity extends AppCompatActivity {
         githubEditText = findViewById(R.id.github_edit_text);
         searchButton = findViewById(R.id.search_button);
         contentTextView = findViewById(R.id.content_text_view);
+        progressBar = findViewById(R.id.progress_bar);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String repos = "";
                 if (isNetworkConnected()) {
-                    try {
-                        repos = new DownloadInfoTask().execute(githubEditText.getText().toString()).get();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    contentTextView.setText(repos);
+                        DownloadInfoTask d = new DownloadInfoTask();
+                        d.execute(githubEditText.getText().toString());
+
+                    searchButton.setText("Buscando...");
                 }
             }
         });
+
+    }
+
+    private void setResponseText(String s) {
+        contentTextView.setText(s);
     }
 
     private InputStream handleHttpConnection(String user) throws IOException {
@@ -93,7 +97,13 @@ public class GitHubRepoActivity extends AppCompatActivity {
     }
 
     //AsyncTask
-    private class DownloadInfoTask extends AsyncTask<String, Integer, String> {
+    private class DownloadInfoTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String doInBackground(String... urls) {
@@ -103,6 +113,14 @@ public class GitHubRepoActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            setResponseText(s);
+            progressBar.setVisibility(View.GONE);
+            contentTextView.setVisibility(View.VISIBLE);
         }
     }
 }

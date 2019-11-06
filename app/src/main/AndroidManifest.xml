@@ -32,6 +32,7 @@
         <activity android:name=".activities.ActivityWithFragments"></activity>
         <activity android:name=".activities.DialogsActivity"></activity>
         <activity android:name=".activities.SaveFileActivity"></activity>
+        <activity android:name=".activities.GitHubRepoWithGsonActivity"></activity>
     </application>
 
 </manifest>
