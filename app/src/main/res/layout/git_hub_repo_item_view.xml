@@ -12,13 +12,26 @@
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp">
 
-        <TextView
-                android:id="@+id/git_hub_repo_text_view"
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                android:text="Texto"
-                android:textSize="20dp" />
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/git_hub_repo_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Texto"
+                    android:textSize="20dp" />
+
+            <TextView
+                    android:id="@+id/git_hub_owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Texto"
+                    android:textSize="12dp" />
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

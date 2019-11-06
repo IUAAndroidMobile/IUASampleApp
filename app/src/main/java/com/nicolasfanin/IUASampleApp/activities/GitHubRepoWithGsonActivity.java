@@ -123,7 +123,7 @@ public class GitHubRepoWithGsonActivity extends AppCompatActivity {
         return new BufferedInputStream(connection.getInputStream());
     }
 
-    private class DownloadInfoTask extends AsyncTask<String, Integer, List<GitHubRepo>> {
+    private class DownloadInfoTask extends AsyncTask<String, Void, List<GitHubRepo>> {
 
         @Override
         protected List<GitHubRepo> doInBackground(String... strings) {
