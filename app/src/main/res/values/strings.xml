@@ -4,6 +4,9 @@
     <string name="item1">Item 1</string>
     <string name="hola">Hola! %1$s</string>
 
+    <string name="channel_description">Description!</string>
+    <string name="notification_message">Welcome to APP </string>
+
     <string name="subtitulo_splash">TECNOLOGIAS MOVILES</string>
 
     <!-- Layouts regions -->
