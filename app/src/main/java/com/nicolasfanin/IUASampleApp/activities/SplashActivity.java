@@ -1,8 +1,12 @@
 package com.nicolasfanin.IUASampleApp.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,6 +50,26 @@ public class SplashActivity extends AppCompatActivity {
         getResources().getDrawable(R.drawable.logo);
         String[] miArrayString = getResources().getStringArray(R.array.mi_array);
         setTitle(miArrayString[0]);
+
+        requestFineLocationPermission();
+        requestCallPhone();
+    }
+
+    private void requestFineLocationPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+
+        if(permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PackageManager.GET_PERMISSIONS);
+        }
+    }
+
+    private void requestCallPhone() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    PackageManager.GET_PERMISSIONS);
+        }
     }
 
     @Override
